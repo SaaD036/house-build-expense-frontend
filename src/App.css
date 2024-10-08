@@ -1,38 +1,87 @@
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
+        'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+    text-decoration: none;
+}
+
 .App {
-    text-align: center;
-}
-
-.App-logo {
-    height: 40vmin;
-    pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-        animation: App-logo-spin infinite 20s linear;
-    }
-}
-
-.App-header {
-    background-color: #282c34;
     min-height: 100vh;
+}
+
+::-webkit-scrollbar {
+    width: 15px;
+}
+
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 2px #f1f1f1;
+    border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #158901;
+    border-radius: 2px;
+}
+
+.container {
+    height: 100vh;
+}
+
+.center {
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
 }
 
-.App-link {
-    color: #61dafb;
+.page {
+    display: flex;
+    height: 100vh;
 }
 
-@keyframes App-logo-spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+.links {
+    text-decoration: none;
+    color: black;
+}
+
+.text {
+    color: rgb(55 65 81);
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.button {
+    padding: 6px 12px !important;
+    background-color: #158901 !important;
+    border-radius: 5px !important;
+    color: white !important;
+}
+
+.button-disabled {
+    padding: 6px 12px !important;
+    background-color: #4b4e49 !important;
+    border-radius: 5px !important;
+    color: white !important;
+    cursor: not-allowed;
+}
+
+.button-outlined {
+    padding: 6px 12px !important;
+    border-radius: 15px !important;
+    border: 1px solid #158901;
+    color: black !important;
+}
+
+.button-cancel {
+    padding: 6px 12px !important;
+    background-color: rgb(175, 5, 5) !important;
+    border-radius: 15px !important;
+    color: white !important;
+}
+
+.icon {
+    color: #158901;
 }

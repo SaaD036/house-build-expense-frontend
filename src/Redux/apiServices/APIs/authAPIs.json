@@ -1,0 +1,6 @@
+{
+    "LOGIN": {
+        "path": "/auth/login",
+        "method": "POST"
+    }
+}

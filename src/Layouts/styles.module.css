@@ -1,0 +1,33 @@
+.layout {
+    height: 100vh;
+    width: 220px;
+    padding: 0px 15px;
+}
+
+.sidebar {
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+}
+
+.sidebarItems {
+    width: 80%;
+    padding: 10px 0px;
+    cursor: pointer;
+    text-align: center;
+    margin: 5px 0px;
+}
+
+.sidebarItems:hover {
+    background-color: #e3fedf;
+}
+
+.sidebarItemsSelected {
+    color: #158901;
+    font-weight: bold;
+}
+
+.sidebarItemsDivider {
+    width: 80%;
+    background-color: #158901;
+}
