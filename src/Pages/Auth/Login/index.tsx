@@ -12,10 +12,13 @@ import { login } from '../../../Redux/actions/authAction';
 
 import { isEmailValid } from '../../../Utilities/String';
 
+import { LoginPagePropTypes } from './interfaces';
 import WelcomeText from '../../../Assets/Images/welcome_text.png';
 import styles from './styles.module.css';
 
-const Login = () => {
+const Login = (props: LoginPagePropTypes) => {
+    const { login } = props;
+
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [isLoading, setIsLoading] = useState(false);
@@ -25,11 +28,13 @@ const Login = () => {
     };
 
     const isLoginButtonDisabled = () => {
-        if (isEmailValid(email) && !!password) {
-            return false;
+        let isDisabled = !(isEmailValid(email) && !!password);
+
+        if (isLoading) {
+            isDisabled = true;
         }
 
-        return true;
+        return isDisabled;
     };
 
     const onLoginButtonClick = async () => {
@@ -82,12 +87,12 @@ const Login = () => {
     );
 };
 
-// const mapStateToProps = (state: any) => ({
-//     loggedInUser: state.auth.loggedInUser,
-// });
+const mapStateToProps = (state: any) => ({
+    loggedInUser: state.auth.loggedInUser,
+});
 
-// const mapDispatchToProps = {
-//     login,
-// };
+const mapDispatchToProps = {
+    login,
+};
 
-export default Login;
+export default connect(mapStateToProps, mapDispatchToProps)(Login);
