@@ -1,13 +1,15 @@
 import React from 'react';
 
-import Box from '@mui/material/Box';
+import { Backdrop } from '@mui/material';
 import LinearProgress from '@mui/material/LinearProgress';
+
+import styles from './styles.module.css';
 
 const LinearLoadingItem = () => {
     return (
-        <Box sx={{ width: '100%' }}>
-            <LinearProgress />
-        </Box>
+        <Backdrop sx={(theme) => ({ color: '#fff', zIndex: theme.zIndex.drawer + 1 })} open>
+            <LinearProgress className={styles.linearProgress} />
+        </Backdrop>
     );
 };
 
