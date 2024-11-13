@@ -28,13 +28,17 @@ export const login =
 
             if (loginResponse.status === HTTP_STATUS_CODE.NOT_FOUND) {
                 throw new ValidationError('No user found with this credential');
+            } else if (loginResponse.status === HTTP_STATUS_CODE.BAD_REQUEST) {
+                throw new ValidationError('Bad request');
             } else if (loginResponse.status === HTTP_STATUS_CODE.INTERNAL_SERVER_ERROR) {
                 throw new ValidationError('Internal server error');
             }
 
+            const { token } = loginResponse.data;
+
             dispatch({
                 type: LOG_IN,
-                payload: '',
+                payload: token,
             });
         } catch (error) {
             if (error instanceof Error) {

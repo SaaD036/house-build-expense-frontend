@@ -1,34 +1,56 @@
 import React from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 
+import ProtectedRoutes from './protectedRoutes';
+
 import Layout from './Layouts';
 import LoginPage from './Pages/Auth/Login';
 
 const router = createBrowserRouter([
     {
         path: '/',
-        element: <Layout>Home page</Layout>,
+        element: (
+            <ProtectedRoutes auth>
+                <Layout>Home page</Layout>
+            </ProtectedRoutes>
+        ),
     },
     {
         path: '/auth',
         children: [
             {
                 path: 'login',
-                element: <LoginPage />,
+                element: (
+                    <ProtectedRoutes>
+                        <LoginPage />
+                    </ProtectedRoutes>
+                ),
             },
         ],
     },
     {
         path: '/transaction',
-        element: <Layout>Transaction page</Layout>,
+        element: (
+            <ProtectedRoutes auth>
+                <Layout>Transaction page</Layout>
+            </ProtectedRoutes>
+        ),
     },
     {
         path: '/users',
-        element: <Layout>User page</Layout>,
+        element: (
+            <ProtectedRoutes auth>
+                <Layout>User page</Layout>
+            </ProtectedRoutes>
+        ),
     },
     {
         path: '/account',
-        element: <Layout>Account page</Layout>,
+        element: (
+            <ProtectedRoutes auth>
+                <Layout>Account page</Layout>
+            </ProtectedRoutes>
+        ),
     },
 ]);
 
