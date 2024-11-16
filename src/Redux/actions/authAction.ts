@@ -53,3 +53,11 @@ export const login =
             }
         }
     };
+
+export const setLoggedinUserToken =
+    (token: string | undefined) => (dispatch: Dispatch<{ type: string; payload: any }>) => {
+        dispatch({
+            type: LOG_IN,
+            payload: token,
+        });
+    };
