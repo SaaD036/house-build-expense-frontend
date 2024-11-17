@@ -1,13 +1,28 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { RouterProvider } from 'react-router-dom';
 import { ToastContainer, Bounce } from 'react-toastify';
+import { connect } from 'react-redux';
 
 import router from './Routes';
 
+import { setLoggedinUserToken } from './Redux/actions/authAction';
+
+import { cookieName, getCookie } from './Utilities/Cookies';
 import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
 
-function App() {
+function App(props: any) {
+    const { user, setLoggedinUserToken } = props;
+
+    useEffect(() => {
+        if (user) {
+            return;
+        }
+
+        const loggedInUserTokenInCookie = getCookie(cookieName.USER_TOKEN);
+        setLoggedinUserToken(loggedInUserTokenInCookie);
+    }, [user]);
+
     return (
         <div className="App">
             <ToastContainer
@@ -22,4 +37,12 @@ function App() {
     );
 }
 
-export default App;
+const mapStateToProps = (state: any) => ({
+    user: state.auth.loggedInUser,
+});
+
+const mapDispatchToProps = {
+    setLoggedinUserToken,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
