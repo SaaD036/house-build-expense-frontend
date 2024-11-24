@@ -8,3 +8,26 @@
     font-size: 22px;
     cursor: pointer;
 }
+
+.arrowIconContainer {
+    margin-top: -20px;
+    cursor: pointer;
+}
+
+.arrowIcon {
+    background-color: white;
+    border-radius: 50%;
+}
+
+.arrowIcon:hover {
+    background-color: #c3f3ba;
+}
+
+.menuItemContainer {
+    display: flex;
+    align-items: center;
+}
+
+.menuItemLabel {
+    margin-left: 5px;
+}
