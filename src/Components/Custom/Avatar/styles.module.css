@@ -2,7 +2,7 @@
     height: 50px;
     width: 50px;
     border-radius: 50%;
-    background-color: #158901;
     font-size: 25px;
-    color: white;
+    color: #158901;
+    border: 3px solid #158901;
 }

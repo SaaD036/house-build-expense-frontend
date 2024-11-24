@@ -1,0 +1,10 @@
+.headerProfileContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.avatarCircle {
+    font-size: 22px;
+    cursor: pointer;
+}
