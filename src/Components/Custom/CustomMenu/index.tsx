@@ -3,6 +3,7 @@ import React from 'react';
 import { Menu, MenuItem } from '@mui/material';
 
 import { CustomMenuProps, CutomMenuItemsType } from './interfaces';
+import styles from './styles.module.css';
 
 const CustomMenu = (props: CustomMenuProps) => {
     const { items, open, anchorEl, setAnchorEl } = props;
@@ -51,7 +52,11 @@ const CustomMenu = (props: CustomMenuProps) => {
             }}
         >
             {items.map((menuItem) => (
-                <MenuItem key={menuItem.key} onClick={() => onMenuItemClick(menuItem)}>
+                <MenuItem
+                    key={menuItem.key}
+                    onClick={() => onMenuItemClick(menuItem)}
+                    className={styles.menuItem}
+                >
                     {menuItem.label}
                 </MenuItem>
             ))}

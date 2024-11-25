@@ -39,7 +39,7 @@ const HeaderProfile = () => {
     };
 
     const renderProfileMenuLabel = (
-        Icon: OverridableComponent<SvgIconTypeMap<{}, 'svg'>> & { muiName: string },
+        Icon: OverridableComponent<SvgIconTypeMap<any, 'svg'>> & { muiName: string },
         label: string
     ) => {
         return (
