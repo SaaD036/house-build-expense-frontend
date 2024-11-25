@@ -50,17 +50,6 @@ const HeaderProfile = () => {
         );
     };
 
-    const renderProfileMenu = () => {
-        return (
-            <CustomMenu
-                items={getProfileMenuItems()}
-                open={Boolean(anchorEl)}
-                anchorEl={anchorEl}
-                setAnchorEl={setAnchorEl}
-            />
-        );
-    };
-
     const renderAvatarContent = () => {
         return (
             <div className={styles.avatarCircle}>
@@ -79,7 +68,12 @@ const HeaderProfile = () => {
 
     return (
         <div className={styles.headerProfileContainer}>
-            {renderProfileMenu()}
+            <CustomMenu
+                items={getProfileMenuItems()}
+                open={Boolean(anchorEl)}
+                anchorEl={anchorEl}
+                setAnchorEl={setAnchorEl}
+            />
             <Avatar content={renderAvatarContent()} />
             <div
                 className={styles.arrowIconContainer}

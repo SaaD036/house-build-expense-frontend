@@ -47,9 +47,6 @@ const Login = (props: LoginPagePropTypes) => {
         return (
             <div className={styles.welcomeSection}>
                 <img src={WelcomeText} className={styles.welcomeImage}></img>
-                <div className={`text ${styles.welcomeText}`}>
-                    Please enter your credentials to continue ...
-                </div>
             </div>
         );
     };
