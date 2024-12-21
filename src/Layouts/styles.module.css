@@ -31,3 +31,7 @@
     width: 80%;
     background-color: #158901;
 }
+
+.childrenSection {
+    width: calc(100vw - 220px);
+}

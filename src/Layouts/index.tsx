@@ -13,7 +13,7 @@ const Layout = (props: LayoutPropsTypes) => {
             <div className={`center ${styles.layout}`}>
                 <SideBar />
             </div>
-            {children}
+            <div className={styles.childrenSection}>{children}</div>
         </div>
     );
 };

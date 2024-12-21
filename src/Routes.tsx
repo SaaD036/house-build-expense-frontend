@@ -5,6 +5,7 @@ import ProtectedRoutes from './protectedRoutes';
 
 import Layout from './Layouts';
 import LoginPage from './Pages/Auth/Login';
+import ExpensesPage from './Pages/Expenses';
 
 const router = createBrowserRouter([
     {
@@ -32,7 +33,9 @@ const router = createBrowserRouter([
         path: '/transaction',
         element: (
             <ProtectedRoutes auth>
-                <Layout>Transaction page</Layout>
+                <Layout>
+                    <ExpensesPage />
+                </Layout>
             </ProtectedRoutes>
         ),
     },
