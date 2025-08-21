@@ -1,17 +1,24 @@
 import React from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 
-import ProtectedRoutes from './protectedRoutes';
+import ProtectedRoutes from './RoutesProtection';
 
 import Layout from './Layouts';
 import LoginPage from './Pages/Auth/Login';
+import ExpensesPage from './Pages/Expenses';
+import HomePage from './Pages/Home';
+import UsersPage from './Pages/Users';
+
+import { UserRole } from './Constants/Users';
 
 const router = createBrowserRouter([
     {
         path: '/',
         element: (
             <ProtectedRoutes auth>
-                <Layout>Home page</Layout>
+                <Layout>
+                    <HomePage />
+                </Layout>
             </ProtectedRoutes>
         ),
     },
@@ -32,15 +39,19 @@ const router = createBrowserRouter([
         path: '/transaction',
         element: (
             <ProtectedRoutes auth>
-                <Layout>Transaction page</Layout>
+                <Layout>
+                    <ExpensesPage />
+                </Layout>
             </ProtectedRoutes>
         ),
     },
     {
         path: '/users',
         element: (
-            <ProtectedRoutes auth>
-                <Layout>User page</Layout>
+            <ProtectedRoutes auth role={[UserRole.ADMIN, UserRole.VISITOR]}>
+                <Layout>
+                    <UsersPage />
+                </Layout>
             </ProtectedRoutes>
         ),
     },
@@ -49,6 +60,14 @@ const router = createBrowserRouter([
         element: (
             <ProtectedRoutes auth>
                 <Layout>Account page</Layout>
+            </ProtectedRoutes>
+        ),
+    },
+    {
+        path: '/albums',
+        element: (
+            <ProtectedRoutes auth>
+                <Layout>Album page</Layout>
             </ProtectedRoutes>
         ),
     },

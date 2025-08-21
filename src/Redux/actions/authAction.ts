@@ -7,8 +7,11 @@ import { callAxiosAPIWithoutUserCredential } from '../apiServices/calAPPI';
 import { buildURL } from '../apiServices/buildURL';
 import authAPIs from '../apiServices/APIs/authAPIs.json';
 
+import { setCookie } from '../../Utilities/Cookies';
+
 import { LOG_IN } from '../types/auth';
 
+import { cookieName } from '../../Utilities/Cookies';
 import { HTTP_STATUS_CODE } from '../../Constants/HTTP';
 import ValidationError from '../../ErrorHandlers/ValidationError';
 
@@ -36,6 +39,10 @@ export const login =
 
             const { token } = loginResponse.data;
 
+            if (typeof token === 'string') {
+                setCookie(cookieName.USER_TOKEN, token);
+            }
+
             dispatch({
                 type: LOG_IN,
                 payload: token,
@@ -45,4 +52,12 @@ export const login =
                 toast(error.message.toString());
             }
         }
+    };
+
+export const setLoggedinUserToken =
+    (token: string | undefined) => (dispatch: Dispatch<{ type: string; payload: any }>) => {
+        dispatch({
+            type: LOG_IN,
+            payload: token,
+        });
     };
